@@ -4,6 +4,7 @@
 
 case $1 in
 start) 
+cd /home/pi/slice_n_print
 sudo python -m CGIHTTPServer 7001 &
 echo $! > ./server.pid
 ;;
