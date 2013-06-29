@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+ <title>Upload slice print</title>
+ <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+<form enctype="multipart/form-data" action="./cgi-bin/upsliceprint.py" method="post">
+
+
+<div class="tabbed">
+    <a href="#Main" id="Main">
+        Main
+        <div>
+		<b><p>STL to Slice&Print</p></b>
+		File: <input type="file" name="file"><br>
+		URL: <input type="text" name="url"> <br>
+		<b><p>Preset or Manual option</p></b>
+        <input type="radio" name="preset" value="L"/>LOW Quality<br>
+	    <input type="radio" name="preset" value="M"/>MED Quality<br>
+        <input type="radio" name="preset" value="H"/>HIGH Quality<br><br>
+		<input type="radio" name="preset" value="I"/>MANUAL configuration(use option in tabs)<br>
+        </div>
+    </a>
+    <a href="#Printer" id="Printer">
+        Printer
+        <div>
+            
+			MAX-X: <input type="text" name="MAXX" value="200000">(um)<br>
+			MAX-Y: <input type="text" name="MAXY" value="200000">(um) <br>
+			MAX-Z: <input type="text" name="MAXZ" value="200000">(um) <br>
+        </div>
+    </a>
+	<a href="#admesh" id="admesh">
+        Admesh
+        <div>
+            <b><p>Admesh option</p></b>
+			
+        </div>
+    </a>
+    <a href="#Cura" id="Cura">
+        Cura
+        <div>
+				<b><p>Cura-Engine option</p></b>
+                layerThickness <input type="text" name="layerThickness" value=100>(um) <br>
+    initialLayerThickness<input type="text" name="initialLayerThickness" value=300>(um) <br>
+    filamentDiameter<input type="text" name="filamentDiameter" value=2890>(um) <br>
+    filamentFlow<input type="text" name="filamentFlow" value=100>(um) <br>
+    extrusionWidth<input type="text" name="extrusionWidth" id="supportLineWidth" value=400>(um) <br>
+    insetCount<input type="text" name="insetCount" value=2> <br>
+    downSkinCount<input type="text" name="downSkinCount" value=6> <br>
+    upSkinCount<input type="text" name="upSkinCount" value=6> <br>
+    sparseInfillLineDistance <input type="text" name="sparseInfillLineDistance" value=100>  need  * config.extrusionWidth / 20 <br>
+    infillOverlap <input type="text" name="infillOverlap" value=15> <br>
+    skirtDistance <input type="text" name="skirtDistance" value=6000> <br>
+    skirtLineCount <input type="text" name="skirtLineCount" value=1> <br>
+
+    initialSpeedupLayers <input type="text" name="initialSpeedupLayers" value=4> <br>
+    initialLayerSpeed <input type="text" name="initialLayerSpeed" value=200> <br>
+    printSpeed<input type="text" name="printSpeed" value=50> <br>
+    infillSpeed<input type="text" name="infillSpeed" value=50> <br>
+    moveSpeed<input type="text" name="moveSpeed" value=200> <br>
+    fanOnLayerNr<input type="text" name="fanOnLayerNr" value=2> <br>
+    
+    supportAngle<input type="text" name="supportAngle" value=-1> <br>
+    supportEverywhere<input type="text" name="supportEverywhere" value=0 supe> <br>
+       
+    retractionAmount<input type="text" name="retractionAmount" value= 4.5><br>
+    retractionSpeed<input type="text" name="retractionSpeed" value= 45> <br>
+    retractionAmountExtruderSwitch<input type="text" name="retractionAmountExtruderSwitch" value=14.5> <br>
+    multiVolumeOverlap<input type="text" name="multiVolumeOverlap" value=0> <br>
+    objectPosition x<input type="text" name="objectPosition.X" value= 102500>(um)<br>
+    objectPosition Y<input type="text" name="objectPosition.Y" value= 102500>(um)<br>
+    objectSink<input type="text" name="objectSink" value= 0> <br>
+
+    raftMargin<input type="text" name="raftMargin" value=5000> <br>
+    raftLineSpacing<input type="text" name="raftLineSpacing" value=1000> <br>
+    raftBaseThickness<input type="text" name="raftBaseThickness" value=0> <br>
+    raftBaseLinewidth<input type="text" name="raftBaseLinewidth" value=0> <br>
+    raftInterfaceThickness<input type="text" name="raftInterfaceThickness" value=0> <br>
+    raftInterfaceLinewidth<input type="text" name="raftInterfaceLinewidth" value=0> <br>
+    
+    minimalLayerTime<input type="text" name="minimalLayerTime" value=5> <br>
+    minimalFeedrate<input type="text" name="minimalFeedrate" value=10> <br>
+    coolHeadLift<input type="text" name="coolHeadLift" value=1> <br>
+    fanSpeedMin<input type="text" name="fanSpeedMin" value=100> <br>
+    fanSpeedMax<input type="text" name="fanSpeedMax" value=100> <br>
+    fixHorrible<input type="text" name="fixHorible" value=0> <br>
+	</div>
+    </a>
+</div>
+
+	
+
+	<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="START"></p>
+</form>
+
+
+</body>
+</html>

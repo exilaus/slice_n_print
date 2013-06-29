@@ -1,0 +1,40 @@
+div.tabbed {
+    position: relative;
+    font-size: 0;
+}
+
+div.tabbed > a {
+    display: inline-block;
+    padding: .5em;
+    font-size: 16px;
+    border-radius: 3px 3px 0 0;
+    background-color: #333;
+    color: #eee;
+    text-decoration: none;
+    line-height: 1em;
+}
+
+div.tabbed > a + a {
+    margin-left: .5em;
+}
+
+div.tabbed > a:target {
+    color: #333;
+    background-color: #eee;
+}
+
+div.tabbed > a > div {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 60%;
+    padding: .5em;
+    border-radius: 0 3px 3px 3px;
+    display: none;
+    color: #333;
+    background-color: #eee;
+}
+
+div.tabbed > a:target > div {
+    display: block;
+}
