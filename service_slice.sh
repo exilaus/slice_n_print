@@ -3,7 +3,8 @@
 #sudo chmod u+s /usr/bin/pythonRoot
 
 case $1 in
-start) 
+start)
+cd /home/pi/slice_n_print
 sudo python -m CGIHTTPServer 7001 &
 echo $! > ./server.pid
 ;;
