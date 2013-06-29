@@ -17,7 +17,7 @@ Is very early version...need work too much:<br>
 
 Preset work but need configure fine file (no have a 3d printer and no have possible to set it :D )<br>
 
-Rhanks too much at:<br>
+Thanks too much at:<br>
 <br>
 Ulimaker and David from great cura... and thanks for cura-engine it work very fine on Raspberry pi<br>
 amartin@varlog.com  for ADMesh<br>
