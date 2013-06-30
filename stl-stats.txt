@@ -1,0 +1,34 @@
+ADMesh version 0.95, Copyright (C) 1995, 1996 Anthony D. Martin
+ADMesh comes with NO WARRANTY.  This is free software, and you are welcome to
+redistribute it under certain conditions.  See the file COPYING for details.
+Opening ./stl/gears_.stl
+Checking exact...
+Checking normal directions...
+Calculating volume...
+Verifying neighbors...
+
+================= Results produced by ADMesh version 0.95 ================
+Input file         : ./stl/gears_.stl
+File type          : ASCII STL file
+Header             : solid OpenSCAD_Model
+============== Size ==============
+Min X = -23.697001, Max X =  23.697001
+Min Y = -23.634300, Max Y =  23.634300
+Min Z = -6.364100, Max Z =  6.464100
+46.696999
+46.634300
+12.464100
+„(­ûNumber of facets                 :  3596                3596
+Facets with 1 disconnected edge  :     0                   0
+Facets with 2 disconnected edges :     0                   0
+Facets with 3 disconnected edges :     0                   0
+Total disconnected facets        :     0                   0
+=== Processing Statistics ===     ===== Other Statistics =====
+Number of parts       :    61        Volume   :  6624.315430
+Degenerate facets     :     0
+Edges fixed           :     0
+Facets removed        :     0
+Facets added          :     0
+Facets reversed       :     0
+Backwards edges       :     0
+Normals fixed         :     0

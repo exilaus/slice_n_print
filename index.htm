@@ -83,7 +83,7 @@
 <form enctype="multipart/form-data" action="./cgi-bin/upsliceprint.py" method="post" onsubmit="return checkvalue(this)">
 
 
-<div class="tabbed">
+<div class="tabbed" persist="true">
     <a href="#Main" id="Main">
         Main
         <div>
@@ -94,6 +94,8 @@
 	    <li> <input type="radio" name="preset" value="M"/>MED Quality<br></li>
         <li> <input type="radio" name="preset" value="H"/>HIGH Quality<br></li>
 		<li> <input type="radio" name="preset" value="I" checked="checked"/>Manual config<br></li>
+<br><br>
+<center><input type="submit" class="button" value="Slice!!" /></center>
         </div>
     </a>
     <a href="#Printer" id="Printer">
@@ -155,7 +157,7 @@
  <td>   retractionAmount</td><td><input type="text" name="retractionAmount" value= 4.5 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"></td></tr><tr>
  <td>   retractionSpeed</td><td><input type="text" name="retractionSpeed" value= 45 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
  <td>   retractionAmountExtruderSwitch</td><td><input type="text" name="retractionAmountExtruderSwitch" value=14.5 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
- <td>   multiVolumeOverlap</td><td><input type="text" name="multiVolumeOverlap" value=0onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
+ <td>   multiVolumeOverlap</td><td><input type="text" name="multiVolumeOverlap" value=0 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
  <td>   objectPosition x</td><td><input type="text" name="objectPosition.X" value= 102500 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);">(um)</td></tr><tr>
  <td>   objectPosition Y</td><td><input type="text" name="objectPosition.Y" value= 102500 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);">(um)</td></tr><tr>
  <td>   objectSink</td><td><input type="text" name="objectSink" value= 0 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr>
@@ -186,9 +188,8 @@
 </a>
 </div>
 
-	
-
-	<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="START"></p>
+<p></p>
+<a href="#Main" > click here</a>
 </form>
 
 

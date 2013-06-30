@@ -4,16 +4,14 @@ import subprocess
 import cgitb; cgitb.enable()
 import ConfigParser
 
-
-print "Content-Type: text/html;charset=utf-8\r\n\r\n"    
-print        
-print "<html>"
-print "<head>"
-print "<title>Slice&Print</title>"
-print "<link rel=""stylesheet"" type=""text/css"" href=""..\style.css"">"
-print "<body>"
-print "<h2>Slice & Print</h2>"
-print "<center>"
+class Unbuffered:
+   def __init__(self, stream):
+       self.stream = stream
+   def write(self, data):
+       self.stream.write(data)
+       self.stream.flush()
+   def __getattr__(self, attr):
+       return getattr(self.stream, attr)
 
 
 
@@ -40,6 +38,16 @@ if fileitem.filename:
    
 else:
    message = 'No file was uploaded'
+sys.stdout=Unbuffered(sys.stdout)
+print "Content-Type: text/html;charset=utf-8\r\n\r\n"    
+print        
+print "<html>"
+print "<head>"
+print "<title>Slice&Print</title>"
+print "<link rel=""stylesheet"" type=""text/css"" href=""..\style.css"">"
+print "<body>"
+print "<h2>Slice & Print</h2>"
+print "<center>"
 print "<p>result upload: %s</p>" % (message) 
 
 
@@ -152,34 +160,28 @@ if MAXX/x<1 or MAXY/y<1 or MAXZ/z<1 :
        else:
 	      scale= MAXY/y
    else:
-       if MAXX/x > MAXz/z:
+       if MAXX/x > MAXZ/z:
 	      scale= MAXZ/z
        else:
              scale= MAXX/x		
-   subprocess.call("./admesh --normal-directions --tolerance=0.01 --exact --scale=%f ./stl/%s > stl-stats.txt" % scale,fn,shell=True)
+   subprocess.call("./admesh --normal-directions --tolerance=0.01 --exact --scale=%f ./stl/%s > stl-stats.txt" % (scale,fn),shell=True)
    print "<p>Object too much big reduced with factr scale: %s</p>" % (scale)
    open_file=open('stl-stats.txt','r')
    file_lines=open_file.readlines()
-
-print "Dimesion of object : <br>"
-print "Max X: %s<br>" % file_lines[17].strip()
-print "Max Y: %s<br>" % file_lines[18].strip()
-print "Max Z: %s<br>" % file_lines[19].strip()
-print "Volume: %s<br>" % file_lines[26].strip()
-
+   print "Dimesion of object : <br>"
+   print "Max X: %s<br>" % file_lines[17].strip()
+   print "Max Y: %s<br>" % file_lines[18].strip()
+   print "Max Z: %s<br>" % file_lines[19].strip()
+   print "Volume: %s<br>" % file_lines[26].strip()
+else:
+   print "Dimesion of object : <br>"
+   print "Max X: %s<br>" % file_lines[17].strip()
+   print "Max Y: %s<br>" % file_lines[18].strip()
+   print "Max Z: %s<br>" % file_lines[19].strip()
+   print "Volume: %s<br>" % file_lines[26].strip()
 
 #--------------Cura engine
 print "<p></p><p></p>Start Slicing:<p></p><p></p>"
-#subprocess.call("echo <html><head><title>curalog</title><meta http-equiv=refresh content=5 ></head><body> >curalog.htm",shell=True)
-#print "<iframe src=../curalog.htm></iframe><br>"
-#subprocess.call("./CuraEngine -v -s filamentDiameter=2890 -s filamentFlow=100 -s initialLayerThickness=300 -s layerThickness=100 -s extrusionWidth=400 -s insetCount=2 -s downSkinCount=6 -s upSkinCount=6 -s initialSpeedupLayers=4 -s initialLayerSpeed=200 -s printSpeed=50 -s infillSpeed=50 -s moveSpeed=200 -s fanOnLayerNr=2 -s skirtDistance=6000 -s skirtLineCount=1 -s sparseInfillLineDistance=566 -s infillOverlap=15 -s objectPosition.X=102500 -s objectPosition.Y=102500 -s objectSink=0 -s supportAngle=-1 -s supportEverywhere=0 -s supportLineWidth=400 -s retractionAmount=4.5 -s retractionSpeed=45 -s retractionAmountExtruderSwitch=14.5 -s multiVolumeOverlap=0 -s minimalLayerTime=5 -s minimalFeedrate=10 -s coolHeadLift=1 -s fanSpeedMin=100 -s fanSpeedMax=100 -s raftMargin=5000 -s raftLineSpacing=1000 -s raftBaseThickness=0 -s raftBaseLinewidth=0 -s raftInterfaceThickness=0 -s raftInterfaceLinewidth=0 -s fixHorrible=0 -o ./%s.gcode ./%s >>curalog.txt" % (fn,fn),shell=True) 
-
 subprocess.call("./CuraEngine -v -s filamentDiameter=%s -s filamentFlow=%s -s initialLayerThickness=%s -s layerThickness=%s -s extrusionWidth=%s -s insetCount=%s -s downSkinCount=%s -s upSkinCount=%s -s initialSpeedupLayers=%s -s initialLayerSpeed=%s -s printSpeed=%s -s infillSpeed=%s -s moveSpeed=%s -s fanOnLayerNr=%s -s skirtDistance=%s -s skirtLineCount=%s -s sparseInfillLineDistance=%s -s infillOverlap=%s -s objectPosition.X=%s -s objectPosition.Y=%s -s objectSink=%s -s supportAngle=%s -s supportEverywhere=%s -s supportLineWidth=%s -s retractionAmount=%s -s retractionSpeed=%s -s retractionAmountExtruderSwitch=%s -s multiVolumeOverlap=%s -s minimalLayerTime=%s -s minimalFeedrate=%s -s coolHeadLift=%s -s fanSpeedMin=%s -s fanSpeedMax=%s -s raftMargin=%s -s raftLineSpacing=%s -s raftBaseThickness=%s -s raftBaseLinewidth=%s -s raftInterfaceThickness=%s -s raftInterfaceLinewidth=%s -s fixHorrible=%s -o ./gcode/%s.gcode ./stl/%s >>curalog.txt" % (filamentDiameter,filamentFlow,initialLayerThickness,layerThickness,extrusionWidth,insetCount,downSkinCount,upSkinCount,initialSpeedupLayers,initialLayerSpeed,printSpeed,infillSpeed,moveSpeed,fanOnLayerNr,skirtDistance,skirtLineCount,sparseInfillLineDistance,infillOverlap,objectPositionx,objectPositiony,objectSink,supportAngle,supportEverywhere,supportLineWidth,retractionAmount,retractionSpeed,retractionAmountExtruderSwitch,multiVolumeOverlap,minimalLayerTime,minimalFeedrate,coolHeadLift,fanSpeedMin,fanSpeedMax,raftMargin,raftLineSpacing,raftBaseThickness,raftBaseLinewidth,raftInterfaceThickness,raftInterfaceLinewidth,fixHorrible,fn,fn),shell=True) 
-
-#print("./CuraEngine -v -s filamentDiameter=%s -s filamentFlow=%s -s initialLayerThickness=%s -s layerThickness=%s -s extrusionWidth=%s -s insetCount=%s -s downSkinCount=%s -s upSkinCount=%s -s initialSpeedupLayers=%s -s initialLayerSpeed=%s -s printSpeed=%s -s infillSpeed=%s -s moveSpeed=%s -s fanOnLayerNr=%s -s skirtDistance=%s -s skirtLineCount=%s -s sparseInfillLineDistance=%s -s infillOverlap=%s -s objectPosition.X=%s -s objectPosition.Y=%s -s objectSink=%s -s supportAngle=%s -s supportEverywhere=%s -s supportLineWidth=%s -s retractionAmount=%s -s retractionSpeed=%s -s retractionAmountExtruderSwitch=%s -s multiVolumeOverlap=%s -s minimalLayerTime=%s -s minimalFeedrate=%s -s coolHeadLift=%s -s fanSpeedMin=%s -s fanSpeedMax=%s -s raftMargin=%s -s raftLineSpacing=%s -s raftBaseThickness=%s -s raftBaseLinewidth=%s -s raftInterfaceThickness=%s -s raftInterfaceLinewidth=%s -s fixHorrible=%s -o ./gcode/%s.gcode ./stl/%s >curalog.txt" % (filamentDiameter,filamentFlow,initialLayerThickness,layerThickness,extrusionWidth,insetCount,downSkinCount,upSkinCount,initialSpeedupLayers,initialLayerSpeed,printSpeed,infillSpeed,moveSpeed,fanOnLayerNr,skirtDistance,skirtLineCount,sparseInfillLineDistance,infillOverlap,objectPositionx,objectPositiony,objectSink,supportAngle,supportEverywhere,supportLineWidth,retractionAmount,retractionSpeed,retractionAmountExtruderSwitch,multiVolumeOverlap,minimalLayerTime,minimalFeedrate,coolHeadLift,fanSpeedMin,fanSpeedMax,raftMargin,raftLineSpacing,raftBaseThickness,raftBaseLinewidth,raftInterfaceThickness,raftInterfaceLinewidth,fixHorrible,fn,fn)) 
-
-
-
-
-print "<br>Object sliced <br> and now need decide how software use for printing.........."
+print "<br><b>Object sliced<b><br> and now need decide how software use for printing.........."
 
