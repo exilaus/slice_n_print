@@ -24,8 +24,10 @@ amartin@varlog.com  for ADMesh<br>
 Thanks at all and any suggesition or help are welcome!<br>
 Mauro<br>
 exilaus@hotmail.com
-
-
+![v1](https://lh3.googleusercontent.com/-hPimnREILcE/UcySR2u_MSI/AAAAAAAADZ8/ref79bZXQaY/w877-h658-no/Diapositiva1.JPG)
+![v2](https://lh6.googleusercontent.com/-nvp3SFAtyv8/UcySRzMyY-I/AAAAAAAADaA/kMfZF5pUdiA/w877-h658-no/Diapositiva2.JPG)
+![v3](https://lh4.googleusercontent.com/--pv21m54ze8/UcySSYPqUvI/AAAAAAAADaI/QMPOCAqHgqg/w877-h658-no/Diapositiva3.JPG)
+![v4](https://lh4.googleusercontent.com/-useOhk31T1s/UdGzLW8l7ZI/AAAAAAAADbs/lwSrzxWArDg/w925-h658-no/output.jpg)
 **how start it**<br>
 Use the console to go in Slice_n_print directory and run the following commands:
 
