@@ -1,32 +1,31 @@
 ADMesh version 0.95, Copyright (C) 1995, 1996 Anthony D. Martin
 ADMesh comes with NO WARRANTY.  This is free software, and you are welcome to
 redistribute it under certain conditions.  See the file COPYING for details.
-Opening ./stl/gear.stl
-Scaling by factor 0.042206...
+Opening ./stl/wine_glassholder2_fixed.stl
 Checking exact...
 Checking normal directions...
 Calculating volume...
 Verifying neighbors...
-Writing ascii file ./stl/agear.stl
+Writing ascii file ./stl/wine_glassholder2_fixed.stl
 
 ================= Results produced by ADMesh version 0.95 ================
-Input file         : ./stl/gear.stl
-File type          : ASCII STL file
-Header             : solid  Processed by ADMesh version 0.95
+Input file         : ./stl/wine_glassholder2_fixed.stl
+File type          : Binary STL file
+Header             : STL File created by netfabb - http://www.netfabb.com UNITS=MM
 ============== Size ==============
-Min X = -100.015556, Max X =  100.015556
-Min Y = -99.750923, Max Y =  99.750923
-Min Z = -27.069241, Max Z =  27.073460
-200.015564
-198.750916
-54.073460
-„(­ûNumber of facets                 :  3596                3596
+Min X =  32.902000, Max X =  77.710007
+Min Y = -199.816010, Max Y = -69.890007
+Min Z = -5.974000, Max Z =  5.972000
+109.710007
+129.109985
+10.972000
+„(­ûNumber of facets                 :  1854                1854
 Facets with 1 disconnected edge  :     0                   0
 Facets with 2 disconnected edges :     0                   0
 Facets with 3 disconnected edges :     0                   0
 Total disconnected facets        :     0                   0
 === Processing Statistics ===     ===== Other Statistics =====
-Number of parts       :    61        Volume   :  498037.843750
+Number of parts       :     1        Volume   :  19567.634766
 Degenerate facets     :     0
 Edges fixed           :     0
 Facets removed        :     0

@@ -8,6 +8,38 @@
 </head>
 
 <body>
+<script type="text/javascript">
+var _validFileExtensions = [".STL"];
+
+function Validate(oForm) {
+    var arrInputs = oForm.getElementsByTagName("input");
+    for (var i = 0; i < arrInputs.length; i++) {
+        var oInput = arrInputs[i];
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+
+                if (!blnValid) {
+                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    return false;
+                }
+            }
+			else {alert("Sorry, no file select");
+                    return false;
+			}
+        }
+    }
+
+    return true;
+}</script>
 
 <script type="text/javascript">
  function fun_AllowOnlyAmountAndDot(txt)
@@ -80,7 +112,7 @@
 
 <h2>Slice & Print</h2>
 
-<form enctype="multipart/form-data" action="./cgi-bin/upsliceprint.py" method="post" onsubmit="return checkvalue(this)">
+<form enctype="multipart/form-data" action="./cgi-bin/upsliceprint.py" method="post" onsubmit="return Validate(this);">
 
 
 <div class="tabbed" persist="true">
@@ -181,7 +213,7 @@
  <td>   coolHeadLift</td><td><input type="text" name="coolHeadLift" value=1 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
  <td>   fanSpeedMin</td><td><input type="text" name="fanSpeedMin" value=100 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
  <td>   fanSpeedMax</td><td><input type="text" name="fanSpeedMax" value=100 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
- <td>   fixHorrible</td><td><input type="text" name="fixHorible" value=0 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
+ <td>   fixHorrible</td><td><input type="text" name="fixHorrible" value=0 onkeypress = "return fun_AllowOnlyAmountAndDot(this.id);"> </td></tr><tr>
 
 </table>
 	</div>
