@@ -1,31 +1,31 @@
 ADMesh version 0.95, Copyright (C) 1995, 1996 Anthony D. Martin
 ADMesh comes with NO WARRANTY.  This is free software, and you are welcome to
 redistribute it under certain conditions.  See the file COPYING for details.
-Opening ./stl/wine_glassholder2_fixed.stl
+Opening ./stl/wolt.stl
 Checking exact...
 Checking normal directions...
 Calculating volume...
 Verifying neighbors...
-Writing ascii file ./stl/wine_glassholder2_fixed.stl
+Writing ascii file ./stl/wolt.stl
 
 ================= Results produced by ADMesh version 0.95 ================
-Input file         : ./stl/wine_glassholder2_fixed.stl
+Input file         : ./stl/wolt.stl
 File type          : Binary STL file
-Header             : STL File created by netfabb - http://www.netfabb.com UNITS=MM
+Header             : COLOR=
 ============== Size ==============
-Min X =  32.902000, Max X =  77.710007
-Min Y = -199.816010, Max Y = -69.890007
-Min Z = -5.974000, Max Z =  5.972000
-109.710007
-129.109985
-10.972000
-„(­ûNumber of facets                 :  1854                1854
+Min X = -39.000999, Max X = -13.000000
+Min Y = -1.001000, Max Y =  21.000999
+Min Z = -0.001000, Max Z =  20.000999
+26.000000
+22.000999
+20.000999
+„(­ûNumber of facets                 :   248                 248
 Facets with 1 disconnected edge  :     0                   0
 Facets with 2 disconnected edges :     0                   0
 Facets with 3 disconnected edges :     0                   0
 Total disconnected facets        :     0                   0
 === Processing Statistics ===     ===== Other Statistics =====
-Number of parts       :     1        Volume   :  19567.634766
+Number of parts       :     1        Volume   :  7577.208984
 Degenerate facets     :     0
 Edges fixed           :     0
 Facets removed        :     0

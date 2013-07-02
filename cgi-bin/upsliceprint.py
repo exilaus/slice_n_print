@@ -68,7 +68,7 @@ print
 print "<html>"
 print "<head>"
 print "<title>Slice&Print</title>"
-print "<link rel=""stylesheet"" type=""text/css"" href=""..\style.css"">"
+print "<link rel=""stylesheet"" type=""text/css"" href=""../WEB/style.css"">"
 print "<body>"
 print "<h2>Slice & Print</h2>"
 print "<center><table><tr><td><center>"
@@ -170,7 +170,7 @@ else:
 #-----------admesh correct and stats
 print "<p></p><p></p><b>Check Object</b><p></p><p></p>"
 #subprocess.call("./admesh --normal-directions --tolerance=0.01 --exact -a ./stl/%s ./stl/%s > stl-stats.txt" % (fn,fn),shell=True)
-execute("sudo ./admesh --normal-directions --tolerance=0.01 --exact -a ./stl/%s ./stl/%s > ./stl-stats.txt" % (fn,fn))
+execute("./admesh --normal-directions --tolerance=0.01 --exact -a ./stl/%s ./stl/%s > ./stl-stats.txt" % (fn,fn))
 #-----------object are big object?
 open_file=open('stl-stats.txt','r')
 file_lines=open_file.readlines()
@@ -189,8 +189,8 @@ if MAXX/x<1 or MAXY/y<1 or MAXZ/z<1 :
 	      scale= MAXZ/z
        else:
              scale= MAXX/x		
-   #subprocess.call("sudo ./admesh --normal-directions --tolerance=0.01 --exact --scale=%f -a ./stl/%s ./stl/%s > stl-stats.txt" % (scale,fn,fn),shell=True)
-   execute("sudo ./admesh --normal-directions --tolerance=0.01 --exact --scale=%f -a ./stl/%s ./stl/%s > ./stl-stats.txt" % (scale,fn,fn))
+   #subprocess.call("./admesh --normal-directions --tolerance=0.01 --exact --scale=%f -a ./stl/%s ./stl/%s > stl-stats.txt" % (scale,fn,fn),shell=True)
+   execute("./admesh --normal-directions --tolerance=0.01 --exact --scale=%f -a ./stl/%s ./stl/%s > ./stl-stats.txt" % (scale,fn,fn))
    print "<p>Object too much big reduced with factr scale: %s</p>" % (scale)
    open_file=open('stl-stats.txt','r')
    file_lines=open_file.readlines()

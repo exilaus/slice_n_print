@@ -4,7 +4,7 @@
 <html>
 <head>
  <title>Upload slice print</title>
- <link rel="stylesheet" type="text/css" href="./style.css">
+ <link rel="stylesheet" type="text/css" href="./WEB/style.css">
 </head>
 
 <body>
@@ -119,6 +119,7 @@ function Validate(oForm) {
     <a href="#Main" id="Main">
         Main
         <div>
+        <table><tr><td>
 		<b><p>STL to Slice&Print</p></b>
 		File: <input type="file" name="file"><br>
 		<b><p>Preset or Manual option</p></b>
@@ -127,7 +128,8 @@ function Validate(oForm) {
         <li> <input type="radio" name="preset" value="H"/>HIGH Quality<br></li>
 		<li> <input type="radio" name="preset" value="I" checked="checked"/>Manual config<br></li>
 <br><br>
-<center><input type="submit" class="button" value="Slice!!" /></center>
+<center><input type="submit" class="button" value="Slice!!" /></center><td><div id="centered" class="centered" style="display: none;"></div>
+         <div id="webgl" oncontextmenu="return false;"></div></td></tr></table>
         </div>
     </a>
     <a href="#Printer" id="Printer">
@@ -142,7 +144,7 @@ function Validate(oForm) {
          </table>
         </div>
     </a>
-	
+
     <a href="#Cura" id="Cura">
         Cura
         <div>
