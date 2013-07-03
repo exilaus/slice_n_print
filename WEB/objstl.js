@@ -69,7 +69,7 @@
         camera.position.z = 500;
 
         scene = new THREE.Scene();
-
+        
 		scene.add(camera);
 		material = new THREE.MeshLambertMaterial({color: 0xCCCCCC,wireframe: false});
 
@@ -97,19 +97,19 @@
         document.body.addEventListener('mouseup', ev_mouseup, false);
         document.body.addEventListener('DOMMouseScroll', ev_mousewheel, false);
 		document.body.addEventListener('mousewheel', ev_mousewheel, false);
+
     }
 
     function animate() {
 
-        //requestAnimationFrame( animate );
+        requestAnimationFrame( animate );
         render();
 
     }
 
     function render() {
 
-
-        renderer.render( scene, camera );
+                renderer.render( scene, camera );
 
     }
 	

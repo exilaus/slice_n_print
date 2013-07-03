@@ -5,9 +5,11 @@
 <head>
  <title>Upload slice print</title>
  <link rel="stylesheet" type="text/css" href="./WEB/style.css">
+ <script src="./WEB/Three.js"></script>
+<script src="./WEB/RequestAnimationFrame.js"></script>
+<script src="./WEB/objstl.js"></script>
 </head>
 
-<body>
 <script type="text/javascript">
 var _validFileExtensions = [".STL"];
 
@@ -104,12 +106,33 @@ function Validate(oForm) {
                     return false;
             }
 
-        }
+        } 
+  </script>
 
+<script>
+function onInputFileChange()
+{   
+    var file = document.getElementById("file").files[0];
+    var fileURL = window.URL.createObjectURL(file);
+    if (file.size<25130000)
+                {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", fileURL, false);
+    try {
+        xhr.send();
+		var oFile=xhr.responseText;
+			f={};
+			f.name="file.stl";
+			buildGeometry(oFile, f);
 
-    </script>
+    } catch (error) {
+        log("Received exception " + error.code + ": " + error.name);
+    }
+    }
+}
+</script>
 
-
+<body onload="load()">
 <h2>Slice & Print</h2>
 
 <form enctype="multipart/form-data" action="./cgi-bin/upsliceprint.py" method="post" onsubmit="return Validate(this);">
@@ -121,7 +144,7 @@ function Validate(oForm) {
         <div>
         <table><tr><td>
 		<b><p>STL to Slice&Print</p></b>
-		File: <input type="file" name="file"><br>
+		File: <input type="file" name="file" id="file" onchange="onInputFileChange()"><br>
 		<b><p>Preset or Manual option</p></b>
         <li> <input type="radio" name="preset" value="L"/>LOW Quality<br></li>
 	    <li> <input type="radio" name="preset" value="M"/>MED Quality<br></li>

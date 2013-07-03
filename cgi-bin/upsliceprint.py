@@ -64,7 +64,7 @@ else:
    message = 'No file was uploaded'
 
 sys.stdout=Unbuffered(sys.stdout)
-print        
+print "Content-Type: text/html;charset=utf-8\r\n\r\n\r\n\r\n\r\n"        
 print "<html>"
 print "<head>"
 print "<title>Slice&Print</title>"
